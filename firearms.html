@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gordon's Sport Supply - Hunting & Fishing Equipment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+     :root {
+    --primary: #000000;
+    --secondary: #FF6B00;
+    --accent: #FFA500;
+    --text: #FFFFFF;
+    --text-secondary: #CCCCCC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 5%;
+    transition: all 0.3s ease; /* Add smooth transition */
+      padding-top: 1%;
+}
+
+/* Navbar */
+.navbar {
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 55px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+  
+    /* Initial transparent blurry state */
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 10000000000000s ease; /* Add smooth transition */
+}
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly more opaque when scrolled */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 992px) {
+    header {
+        padding: 0;
+    }
+    .navbar {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+    }
+}
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            animation: glow 5s infinite alternate;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .logo img {
+  height: 100px; /* or whatever size you want */
+  margin-right: 10px; /* spacing between image and text */
+}
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.085);
+    backdrop-filter: blur(10px); /* This creates the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-top: 3px solid var(--secondary);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--text);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(255, 107, 0, 0.2);
+            color: var(--secondary);
+            padding-left: 20px;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* This creates the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            background: linear-gradient(rgba(0, 0, 0, 0.456), rgba(0, 0, 0, 0.456)), 
+                        url('https://th.bing.com/th/id/R.e166a611ee304a6a049262528bc8dafb?rik=QGCopxW1L6HJIg&pid=ImgRaw&r=0') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 0%, var(--primary) 10000%);
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+        }
+        
+        /* Featured Products */
+        .featured {
+            padding: 5rem 5%;
+            background-color: var(--primary);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+            transform: scaleX(0);
+            transform-origin: center;
+            animation: expandLine 1.5s ease-out forwards;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.2);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .product-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1551649001-7a2485550a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+            padding-top: 12%;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: var(--text);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Brands Section Styles */
+    .brands-section {
+        padding: 5rem 5%;
+        background-color: #0a0a0a;
+        text-align: center;
+    }
+    
+    .brands-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .brand-card {
+        background-color: rgba(30, 30, 30, 0.8);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 107, 0, 0.2);
+    }
+    
+    .brand-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 107, 0, 0.2);
+        border-color: var(--secondary);
+    }
+    
+    .brand-logo {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background-color: rgba(255, 0, 0, 0.024);
+    }
+    
+    .brand-logo img {
+        max-width: 100%;
+        max-height: 100%;
+        
+    }
+    
+
+    
+    .brand-info {
+        padding: 1.5rem;
+    }
+    
+    .brand-info h3 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--text);
+    }
+    
+    .brand-button {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: var(--primary);
+        padding: 0.5rem 1.5rem;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 2px solid var(--secondary);
+        text-transform: uppercase;
+    }
+    
+    .brand-button:hover {
+        background-color: transparent;
+        color: var(--secondary);
+    }
+    
+    @media (max-width: 768px) {
+        .brands-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 107, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 107, 0, 0.8), 0 0 20px rgba(255, 107, 0, 0.6);
+            }
+        }
+        
+        @keyframes expandLine {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="download.avif" alt="logoimg1"/>
+                <i></i>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="firearms.html">Firearms<i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="transfersf.html">Transfers</a>
+                        <a href="Usedfirearmsf.html">Used Firearms</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="fishing.html">Fishing <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="placestofish.html">Places to Fish</a>
+                    </div>
+                </li>
+                <li><a href="#">Directions</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#">More<i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Customer Photos</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Disc Golf</a>
+                        <a href="#">Ranges & Clubs</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    
+
+   
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>Firearms</h2>
+            <p>We love firearms as much as you do, our staff is always willing to help you with any of your shooting needs. We have everything from hunting rifles, shotguns, handguns to guns for sport and target shooting. Everyone at the shop is a firearms owner and very knowledgeable when it comes to the products we sell. In addition to new guns we have one of the largest selections of pre-owned firearms in the area. We buy single guns as well as collections. So if you are looking to Buy Sell or Trade, we are the shop for you. If you are new to owning a firearm or just need advice and or recommendations on what to buy, we can certainly offer guidance to help you make the most sensible and practical choice for your needs.
+
+​
+
+We also offer gunsmithing services at our location. We can handle most of your needs from general repairs, parts installs, trigger installation, scope installations,  sight installs, cleanings, drilling and tapping etc. We work on almost all types and models of firearms. AR-15 modification and parts installs. AK sight work (canted sight fixing) If we can't fix it we can tell you who can. 
+
+​
+
+We offer new and used firearms from most major manufacturers. Our inventory is constantly changing so please check back often to see what is new. We also keep a used firearms list on the website.</p>
+            <a href="#" class="cta-button">About Us</a>
+        </div>
+    </section>
+
+    <section class="brands-section">
+    <div class="container">
+        <h2 class="section-title">OUR FIREARM BRANDS</h2>
+        <div class="brands-grid">
+
+            <!-- Brand Item 1 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logodix.com/logo/1146717.jpg" alt="Smith & Wesson">
+                </div>
+                <div class="brand-info">
+                    <h3>Armalite</h3>
+                
+                </div>
+            </div>
+            
+            <!-- Brand Item 2 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.3f29da07b81e4a3c71686b4097feb20b?rik=Oa9cw%2bvaHUH5Aw&riu=http%3a%2f%2fwww.auto-ordnance.com%2fwp-content%2fuploads%2f2021%2f03%2ficon-ao-logo21-1.gif&ehk=W%2flcdkJkFRtoaoP3Z0mTsjo7j0jalZkqECwCLOcAVR8%3d&risl=&pid=ImgRaw&r=0" alt="Glock">
+                </div>
+                <div class="brand-info">
+                    <h3>Auto Ordnance</h3>
+    
+                </div>
+            </div>
+            
+            <!-- Brand Item 3 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.MHpml95IAh3C8Cx9FdrlQwAAAA?rs=1&pid=ImgDetMain" alt="Remington">
+                </div>
+                <div class="brand-info">
+                    <h3>AMT</h3>
+                   
+                </div>
+            </div>
+            
+            <!-- Brand Item 4 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://1000logos.net/wp-content/uploads/2020/08/Beretta-Logo.png" alt="Ruger">
+                </div>
+                <div class="brand-info">
+                    <h3>Beretta</h3>
+          
+                </div>
+            </div>
+            
+            <!-- Brand Item 5 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.79f64d8969029097fc9a03a87c931561?rik=5JGtuAQ8EMtEgQ&pid=ImgRaw&r=0" alt="Sig Sauer">
+                </div>
+                <div class="brand-info">
+                    <h3>Bersa</h3>
+                   
+                </div>
+            </div>
+            
+            <!-- Brand Item 6 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/11/Benelli-Symbol.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Benelli</h3>
+             
+                </div>
+            </div>
+            
+            <!-- Brand Item 7 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2021/08/Browning-Symbol.png" alt="Smith & Wesson">
+                </div>
+                <div class="brand-info">
+                    <h3>Browning</h3>
+                  
+                </div>
+            </div>
+            
+            <!-- Brand Item 8 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2022/06/Bushmaster-Logo.png" alt="Glock">
+                </div>
+                <div class="brand-info">
+                    <h3>Bushmaster</h3>
+                   
+                </div>
+            </div>
+            
+            <!-- Brand Item 9 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.9fa9d4ba70870b8aab341b2ddacf0813?rik=qirWO6Qh8zE2jQ&riu=http%3a%2f%2fwhichgun.com%2fimg%2fblog-posts%2fcharter-arms-releases-the-40-sw-pit-bull-revolver%2fcharter-arms-logo.png&ehk=C%2f6%2f9e9bhIdxkRZw%2fYX9pO3vZJS83%2foxT%2fSnO7x0WgM%3d&risl=&pid=ImgRaw&r=0" alt="Remington">
+                </div>
+                <div class="brand-info">
+                    <h3>Charter Arms</h3>
+                   
+                </div>
+            </div>
+            
+            <!-- Brand Item 10 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://ammoterra.com/system/companies/logos/000/001/762/original/logo_(15).png?1539606394" alt="Ruger">
+                </div>
+                <div class="brand-info">
+                    <h3>Chiappa</h3>
+                  
+                </div>
+            </div>
+            
+            <!-- Brand Item 11 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.impactguns.com/product_images/uploaded_images/cz-logo-2.jpg" alt="Sig Sauer">
+                </div>
+                <div class="brand-info">
+                    <h3>CZ</h3>
+                 
+                </div>
+            </div>
+            
+            <!-- Brand Item 12 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2022/06/Colt-Logo.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Colt</h3>
+             
+                </div>
+            </div>
+            
+            <!-- Brand Item 13 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2022/06/Daniel-Defense-Emblem.png" alt="Smith & Wesson">
+                </div>
+                <div class="brand-info">
+                    <h3>Daniel Defense</h3>
+                  
+                </div>
+            </div>
+            
+            <!-- Brand Item 14 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/5/59/DPMS-Standard-Logo-Panther-Arms.jpg" alt="Glock">
+                </div>
+                <div class="brand-info">
+                    <h3>DPMS</h3>
+                
+                </div>
+            </div>
+            
+            <!-- Brand Item 15 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://res.cloudinary.com/teepublic/image/private/s--SZdkR_F0--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1643171143/production/designs/27511878_0.jpg" alt="Remington">
+                </div>
+                <div class="brand-info">
+                    <h3>Enfield</h3>
+                 
+                </div>
+            </div>
+            
+            <!-- Brand Item 16 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://kindsniper.com/imagecache/brandSmall/fn-logo.jpg" alt="Ruger">
+                </div>
+                <div class="brand-info">
+                    <h3>FN</h3>
+                  
+                </div>
+            </div>
+            
+            <!-- Brand Item 17 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.876d07d4d66a2525362cceb0f3670668?rik=aLbfXf4PP%2fxzQw&riu=http%3a%2f%2fimages.all-free-download.com%2fimages%2fgraphiclarge%2fglock_80098.jpg&ehk=Igxf%2btmtW3z9u1NptGT%2fIw%2b4BW1f4Q%2fX7B%2bBqSFJVZQ%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Sig Sauer">
+                </div>
+                <div class="brand-info">
+                    <h3>Glock</h3>
+               
+                </div>
+            </div>
+            
+            <!-- Brand Item 18 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.oBdMibLsm1-5VrdvRC4SpAHaHa?rs=1&pid=ImgDetMain" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Heckler & Koch</h3>
+                
+                </div>
+            </div>
+
+            <!-- Brand Item 19 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.americanhunter.org/media/mfbpq5bt/mainhenry-logo.jpg?anchor=center&mode=crop&width=987&height=551&rnd=132906066208200000&quality=60" alt="Smith & Wesson">
+                </div>
+                <div class="brand-info">
+                    <h3>Henry</h3>
+                  
+                </div>
+            </div>
+            
+            <!-- Brand Item 20 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.imfdb.org/images/b/b0/20180209134549_hslogo.jpg" alt="Glock">
+                </div>
+                <div class="brand-info">
+                    <h3>Hi Standard</h3>
+             
+                </div>
+            </div>
+            
+            <!-- Brand Item 21 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.OP4oCOZvZunKUmH_OlTvAAAAAA?rs=1&pid=ImgDetMain" alt="Remington">
+                </div>
+                <div class="brand-info">
+                    <h3>High Standard</h3>
+          
+                </div>
+            </div>
+            
+            <!-- Brand Item 22 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://wallpapers.com/images/hd/howa-firearms-logo-5xy2sl77bvkqg7ky.png" alt="Ruger">
+                </div>
+                <div class="brand-info">
+                    <h3>Howa</h3>
+         
+                </div>
+            </div>
+            
+            <!-- Brand Item 23 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.cactustactical.com/assets/images/manufacturers/ithaca-logo-300x300.jpg" alt="Sig Sauer">
+                </div>
+                <div class="brand-info">
+                    <h3>Ithaca</h3>
+  
+                </div>
+            </div>
+            
+            <!-- Brand Item 24 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.genitron.com/HandgunDB/Logos/keltec-logo.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Kel Tec</h3>
+             
+                </div>
+            </div>
+
+            <!-- Brand Item 25 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.iP0C-O4je5NOQBJ7yRuuWgHaEr?rs=1&pid=ImgDetMain" alt="Smith & Wesson">
+                </div>
+                <div class="brand-info">
+                    <h3>Kimber</h3>
+           
+                </div>
+            </div>
+            
+            <!-- Brand Item 26 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.564270a19ee79b3dde1c62399eccc3fe?rik=SEKcLRSSbYrUxg&riu=http%3a%2f%2fvignette2.wikia.nocookie.net%2fguns%2fimages%2f7%2f7c%2fMagnum_Research_Logo.jpg%2frevision%2flatest%3fcb%3d20111205204054&ehk=xdMXyjuRLcDfRW0XWYVe87XN9Ca99Dm1oUgvtZwy90s%3d&risl=&pid=ImgRaw&r=0" alt="Glock">
+                </div>
+                <div class="brand-info">
+                    <h3>Magnum Research</h3>
+   
+                </div>
+            </div>
+            
+            <!-- Brand Item 27 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://cdn.wallpapersafari.com/21/92/ku1PYb.jpg" alt="Remington">
+                </div>
+                <div class="brand-info">
+                    <h3>Marlin</h3>
+                   
+                </div>
+            </div>
+            
+            <!-- Brand Item 28 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logos-world.net/wp-content/uploads/2022/09/Mossberg-Logo.png" alt="Ruger">
+                </div>
+                <div class="brand-info">
+                    <h3>Mossberg</h3>
+                 
+                </div>
+            </div>
+            
+            <!-- Brand Item 29 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://clipartcraft.com/images/remington-logo-firearms-2.png" alt="Sig Sauer">
+                </div>
+                <div class="brand-info">
+                    <h3>Remington</h3>
+
+                </div>
+            </div>
+            
+            <!-- Brand Item 30 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://topgunsupply.r.worldssl.net/images/M/download%20(3)-02.jpg" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Rock River Arms</h3>
+                  
+                </div>
+            </div>
+
+             <!-- Brand Item 31 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://1000logos.net/wp-content/uploads/2020/08/Ruger-Logo.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Ruger</h3>
+                  
+                </div>
+            </div>
+             <!-- Brand Item 32 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.3ef8a228b33243c24c4fc5f969ab5c60?rik=dYUaBQYGesLKPA&riu=http%3a%2f%2fwww.imfdb.org%2fimages%2f2%2f2e%2fSako_Logo.jpg&ehk=8wd85yHq7ov%2bGXHiuIhI413%2bjo%2fMunm8Wr%2fJ01by5LM%3d&risl=&pid=ImgRaw&r=0" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Sako</h3>
+                 
+                </div>
+            </div>
+             <!-- Brand Item 33 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://1000logos.net/wp-content/uploads/2020/08/Savage-Logo-old.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Savage</h3>
+                
+                </div>
+            </div>
+             <!-- Brand Item 34 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.liblogo.com/img-logo/si4574df1c-sig-sauer-logo-download-info-amp-nra-logo-de-sig-sauer-png-image-with-no.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Sig Sauer</h3>
+                 
+                </div>
+            </div>
+             <!-- Brand Item 35 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://1000logos.net/wp-content/uploads/2023/03/SmithWesson-logo.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Smith & Wesson</h3>
+              
+                </div>
+            </div>
+             <!-- Brand Item 36 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logodix.com/logo/78519.jpg" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Springfield Armory</h3>
+
+                </div>
+            </div>
+             <!-- Brand Item 37 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://www.pngkit.com/png/detail/506-5061450_taurus-firearms-logo.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Taurus</h3>
+                  
+                </div>
+            </div>
+             <!-- Brand Item 38 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://1000logos.net/wp-content/uploads/2020/08/walther-arms-logo.jpg" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Walther</h3>
+                  
+                </div>
+            </div>
+             <!-- Brand Item 39 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://logodix.com/logo/825139.jpg" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Weatherby</h3>
+               
+                </div>
+            </div>
+             <!-- Brand Item 40 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://th.bing.com/th/id/R.f4739d41e3b935db9c991800ecf1d277?rik=NDjGjgMUJAsdag&pid=ImgRaw&r=0" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Winchester</h3>
+    
+                </div>
+            </div>
+             <!-- Brand Item 41 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <img src="https://gunsmithcanada.com/wp-content/uploads/2021/01/Zastava-Arms-Logo-1000x-600x600.png" alt="Colt">
+                </div>
+                <div class="brand-info">
+                    <h3>Zastava</h3>
+                  
+                </div>
+            </div>
+            
+           
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="https://shop.gordonssportssupply.com/">Shop</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Hunting Rifles</a></li>
+                    <li><a href="#">Shotguns</a></li>
+                    <li><a href="#">Ammunition</a></li>
+                    <li><a href="#">Fishing Rods</a></li>
+                    <li><a href="#">Tackle & Bait</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for the latest products and promotions.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> &copy; 2025 Gordon's Sport Supply. All Rights Reserved.</p>
+        </div>
+        <div class="footer-left">
+
+            <p> Website Designed by Rutviij Casula</p>
+        </div>
+    </footer>
+
+    <script>
+
+        window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Responsive adjustment
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+        
+    
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.product-card, .about-content');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.product-card, .about-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>

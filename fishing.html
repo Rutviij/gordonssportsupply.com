@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gordon's Sport Supply - Hunting & Fishing Equipment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+     :root {
+    --primary: #000000;
+    --secondary: #FF6B00;
+    --accent: #FFA500;
+    --text: #FFFFFF;
+    --text-secondary: #CCCCCC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 5%;
+    transition: all 0.3s ease; /* Add smooth transition */
+      padding-top: 1%;
+}
+
+/* Navbar */
+.navbar {
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 55px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+  
+    /* Initial transparent blurry state */
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 10000000000000s ease; /* Add smooth transition */
+}
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly more opaque when scrolled */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 992px) {
+    header {
+        padding: 0;
+    }
+    .navbar {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+    }
+}
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            animation: glow 5s infinite alternate;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .logo img {
+  height: 100px; /* or whatever size you want */
+  margin-right: 10px; /* spacing between image and text */
+}
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.085);
+    backdrop-filter: blur(10px); /* This creates the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-top: 3px solid var(--secondary);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--text);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(255, 107, 0, 0.2);
+            color: var(--secondary);
+            padding-left: 20px;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* This creates the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+            background: linear-gradient(rgba(0, 0, 0, 0.456), rgba(0, 0, 0, 0.456)), 
+                        url('https://th.bing.com/th/id/R.e166a611ee304a6a049262528bc8dafb?rik=QGCopxW1L6HJIg&pid=ImgRaw&r=0') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 0%, var(--primary) 10000%);
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+        }
+        
+        /* Featured Products */
+        .featured {
+            padding: 5rem 5%;
+            background-color: var(--primary);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 25%;
+            transform: scaleX(0);
+            transform-origin: center;
+            animation: expandLine 1.5s ease-out forwards;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.2);
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .product-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1551649001-7a2485550a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+            padding-top: 12%;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+        
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: var(--text);
+            padding: 4rem 5% 2rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Brands Section Styles */
+    .brands-section {
+        padding: 5rem 5%;
+        background-color: #0a0a0a;
+        text-align: center;
+    }
+    
+    .brands-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-top: 3rem;
+    }
+    
+    .brand-card {
+        background-color: rgba(30, 30, 30, 0.8);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 107, 0, 0.2);
+    }
+    
+    .brand-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 107, 0, 0.2);
+        border-color: var(--secondary);
+    }
+    
+    .brand-logo {
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        background-color: rgba(255, 0, 0, 0.024);
+    }
+    
+    .brand-logo img {
+        max-width: 100%;
+        max-height: 100%;
+        
+    }
+    
+
+    
+    
+    
+    .brand-info h3 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 0.001 rem;
+        margin-bottom: 1rem;
+        color: var(--text);
+    }
+    
+    .brand-button {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: var(--primary);
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.001rem;
+        transition: all 0.3s ease;
+        border: 2px solid var(--secondary);
+        text-transform: uppercase;
+    }
+    
+    .brand-button:hover {
+        background-color: transparent;
+        color: var(--secondary);
+    }
+    .image-link {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .linked-image {
+    display: block;
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    height: auto;
+    border: 2px solid #FF6B00;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .image-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+  }
+  
+  .image-link:hover .linked-image {
+    border-color: #FFA500;
+    opacity: 0.9;
+  }
+  
+  .image-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .image-link:hover::after {
+    opacity: 1;
+  }
+  
+  /* Optional: Add a "click me" text overlay */
+  .image-link::before {
+    content: "Visit Store";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px black;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+  
+  .image-link:hover::before {
+    opacity: 1;
+  }
+    
+    @media (max-width: 768px) {
+        .brands-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 107, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 107, 0, 0.8), 0 0 20px rgba(255, 107, 0, 0.6);
+            }
+        }
+        
+        @keyframes expandLine {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="download.avif" alt="logoimg1"/>
+                <i></i>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="firearms.html">Firearms<i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="transfersf.html">Transfers</a>
+                        <a href="Usedfirearmsf.html">Used Firearms</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="fishing.html">Fishing <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="placestofish.html">Places to Fish</a>
+                    </div>
+                </li>
+                <li><a href="#">Directions</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#">More<i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Customer Photos</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Disc Golf</a>
+                        <a href="#">Ranges & Clubs</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    
+
+   
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>Get your favorite Fishing Supplies at Gordon's Sport Supply!</h2>
+             <a href="https://gsseagle.proboards.com/" class="cta-button">Click here for fishing reports!</a>
+             <br>
+             <br>
+             <br>
+             <br>
+
+​
+
+We have been outfitting the Chester County area with fishing tackle for over 40 years now. We always are in search for new products coming out and trying to stay on top of the latest fishing tackle trends. As always we are also stocked up on the old standby lures of the past. With our vast selection of tackle we are sure to have you covered for just about any type of freshwater fishing, be it for bass, trout, musky, catfish or even panfish (bluegill, perch or crappie) We have an extensive inventory of rods, reels, lures and accessories from manufacturers listed below and more. We also carry live bait year round! Worms, night crawlers, wax worms, meal worms, fathead minnows, and Arkansas shiners.
+
+        </div>
+    </section>
+
+    <section class="brands-section">
+    <div class="container">
+        <h2 class="section-title">OUR FISHING INVENTORY BRANDS</h2>
+        <div class="brands-grid">
+        <!-- Brand Item 1 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>13 Fishing</h3>
+    </div>
+</div>
+
+<!-- Brand Item 2 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Abu Garcia</h3>
+    </div>
+</div>
+
+<!-- Brand Item 3 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Acme</h3>
+    </div>
+</div>
+
+<!-- Brand Item 4 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Arbogast</h3>
+    </div>
+</div>
+
+<!-- Brand Item 5 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Atlas Mikes</h3>
+    </div>
+</div>
+
+<!-- Brand Item 6 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bagley</h3>
+    </div>
+</div>
+
+<!-- Brand Item 7 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bait Towel</h3>
+    </div>
+</div>
+
+<!-- Brand Item 8 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Baker</h3>
+    </div>
+</div>
+
+<!-- Brand Item 9 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bandit Lures</h3>
+    </div>
+</div>
+
+<!-- Brand Item 10 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bass Assasin</h3>
+    </div>
+</div>
+
+<!-- Brand Item 11 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Berkley</h3>
+    </div>
+</div>
+
+<!-- Brand Item 12 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Betts</h3>
+    </div>
+</div>
+
+<!-- Brand Item 13 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bee Jays Bait</h3>
+    </div>
+</div>
+
+<!-- Brand Item 14 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Big Bite Baits</h3>
+    </div>
+</div>
+
+<!-- Brand Item 15 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bill Lewis</h3>
+    </div>
+</div>
+
+<!-- Brand Item 16 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bill Fisher</h3>
+    </div>
+</div>
+
+<!-- Brand Item 17 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Billy Boy Bobbers</h3>
+    </div>
+</div>
+
+<!-- Brand Item 18 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Blakemore</h3>
+    </div>
+</div>
+
+<!-- Brand Item 19 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Blue Fox</h3>
+    </div>
+</div>
+
+<!-- Brand Item 20 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bobby Garland</h3>
+    </div>
+</div>
+
+<!-- Brand Item 21 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Booyah</h3>
+    </div>
+</div>
+
+<!-- Brand Item 22 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Bullet Weights</h3>
+    </div>
+</div>
+
+<!-- Brand Item 23 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Calcutta</h3>
+    </div>
+</div>
+
+<!-- Brand Item 24 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Challenge Plastic Products</h3>
+    </div>
+</div>
+
+<!-- Brand Item 25 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Cordell</h3>
+    </div>
+</div>
+
+<!-- Brand Item 26 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Cortland</h3>
+    </div>
+</div>
+
+<!-- Brand Item 27 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Cubby</h3>
+    </div>
+</div>
+
+<!-- Brand Item 28 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Culprit</h3>
+    </div>
+</div>
+
+<!-- Brand Item 29 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Cummings</h3>
+    </div>
+</div>
+
+<!-- Brand Item 30 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Daiwa</h3>
+    </div>
+</div>
+
+<!-- Brand Item 31 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Danielson</h3>
+    </div>
+</div>
+
+<!-- Brand Item 32 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Drifter Lures</h3>
+    </div>
+</div>
+
+<!-- Brand Item 33 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Duty's Bait Rigs</h3>
+    </div>
+</div>
+
+<!-- Brand Item 34 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Eagle Claw</h3>
+    </div>
+</div>
+
+<!-- Brand Item 35 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Eppinger</h3>
+    </div>
+</div>
+
+<!-- Brand Item 36 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Eurotackle</h3>
+    </div>
+</div>
+
+<!-- Brand Item 37 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Felmlee</h3>
+    </div>
+</div>
+
+<!-- Brand Item 38 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Fenwick</h3>
+    </div>
+</div>
+
+<!-- Brand Item 39 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Fish Grip</h3>
+    </div>
+</div>
+
+<!-- Brand Item 40 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Fishin Stix</h3>
+    </div>
+</div>
+
+<!-- Brand Item 41 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Flambeau</h3>
+    </div>
+</div>
+
+<!-- Brand Item 42 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Frabill</h3>
+    </div>
+</div>
+
+<!-- Brand Item 43 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Freaky Franks</h3>
+    </div>
+</div>
+
+<!-- Brand Item 44 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Frogg Toggs</h3>
+    </div>
+</div>
+
+<!-- Brand Item 45 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Fuji</h3>
+    </div>
+</div>
+
+<!-- Brand Item 46 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Gaines</h3>
+    </div>
+</div>
+
+<!-- Brand Item 47 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Gamakatsu</h3>
+    </div>
+</div>
+
+<!-- Brand Item 48 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Gambler</h3>
+    </div>
+</div>
+
+<!-- Brand Item 49 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Gary Yamamoto Baits</h3>
+    </div>
+</div>
+
+<!-- Brand Item 50 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Gene Larew</h3>
+    </div>
+</div>
+
+<!-- Brand Item 51 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Gitzit</h3>
+    </div>
+</div>
+
+<!-- Brand Item 52 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Grim Reaper Lures</h3>
+    </div>
+</div>
+
+<!-- Brand Item 53 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Got-Cha</h3>
+    </div>
+</div>
+
+<!-- Brand Item 54 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Heddon</h3>
+    </div>
+</div>
+
+<!-- Brand Item 55 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Hildebrandt</h3>
+    </div>
+</div>
+
+<!-- Brand Item 56 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>HT Tackle</h3>
+    </div>
+</div>
+
+<!-- Brand Item 57 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Invincible Marine</h3>
+    </div>
+</div>
+
+<!-- Brand Item 58 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Jackall</h3>
+    </div>
+</div>
+
+<!-- Brand Item 59 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Jeros Tackle</h3>
+    </div>
+</div>
+
+<!-- Brand Item 60 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Jackson Cardinal</h3>
+    </div>
+</div>
+
+<!-- Brand Item 61 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Keitech</h3>
+    </div>
+</div>
+
+<!-- Brand Item 62 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Koppers</h3>
+    </div>
+</div>
+
+<!-- Brand Item 63 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Korkers</h3>
+    </div>
+</div>
+
+<!-- Brand Item 64 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Leland Lures</h3>
+    </div>
+</div>
+
+<!-- Brand Item 65 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Lews</h3>
+    </div>
+</div>
+
+<!-- Brand Item 66 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Lindy</h3>
+    </div>
+</div>
+
+<!-- Brand Item 67 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Live Target</h3>
+    </div>
+</div>
+
+<!-- Brand Item 68 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Lucky Strike</h3>
+    </div>
+</div>
+
+<!-- Brand Item 69 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Lucky Craft</h3>
+    </div>
+</div>
+
+<!-- Brand Item 70 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Luhr Jensen</h3>
+    </div>
+</div>
+
+<!-- Brand Item 71 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Lunker City</h3>
+    </div>
+</div>
+
+<!-- Brand Item 72 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Magic Bait</h3>
+    </div>
+</div>
+
+<!-- Brand Item 73 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mann's</h3>
+    </div>
+</div>
+
+<!-- Brand Item 74 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Marine Metal</h3>
+    </div>
+</div>
+
+<!-- Brand Item 75 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Master</h3>
+    </div>
+</div>
+
+<!-- Brand Item 76 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Maxima</h3>
+    </div>
+</div>
+
+<!-- Brand Item 77 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mepps</h3>
+    </div>
+</div>
+
+<!-- Brand Item 78 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mikes</h3>
+    </div>
+</div>
+
+<!-- Brand Item 79 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Minn Kota</h3>
+    </div>
+</div>
+
+<!-- Brand Item 80 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mr. Twister</h3>
+    </div>
+</div>
+
+<!-- Brand Item 81 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mitchell</h3>
+    </div>
+</div>
+
+<!-- Brand Item 82 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mizmo</h3>
+    </div>
+</div>
+
+<!-- Brand Item 83 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Molix</h3>
+    </div>
+</div>
+
+<!-- Brand Item 84 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mr. Crappie</h3>
+    </div>
+</div>
+
+<!-- Brand Item 85 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Musky Innovations</h3>
+    </div>
+</div>
+
+<!-- Brand Item 86 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Musky Mania</h3>
+    </div>
+</div>
+
+<!-- Brand Item 87 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Musky Mayhem</h3>
+    </div>
+</div>
+
+<!-- Brand Item 88 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Mustad</h3>
+    </div>
+</div>
+
+<!-- Brand Item 89 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Northland</h3>
+    </div>
+</div>
+
+<!-- Brand Item 90 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Nungesser</h3>
+    </div>
+</div>
+
+<!-- Brand Item 91 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Okuma</h3>
+    </div>
+</div>
+
+<!-- Brand Item 92 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Onyx</h3>
+    </div>
+</div>
+
+<!-- Brand Item 93 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Optimum Baits</h3>
+    </div>
+</div>
+
+<!-- Brand Item 94 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>O'Tabs</h3>
+    </div>
+</div>
+
+<!-- Brand Item 95 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Owner</h3>
+    </div>
+</div>
+
+<!-- Brand Item 96 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>P-Line</h3>
+    </div>
+</div>
+
+<!-- Brand Item 97 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Panther Martin</h3>
+    </div>
+</div>
+
+<!-- Brand Item 98 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Pautzke</h3>
+    </div>
+</div>
+
+<!-- Brand Item 99 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Penn</h3>
+    </div>
+</div>
+
+<!-- Brand Item 100 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Pfleuger</h3>
+    </div>
+</div>
+
+<!-- Brand Item 101 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Phantom Lures</h3>
+    </div>
+</div>
+
+<!-- Brand Item 102 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Plano</h3>
+    </div>
+</div>
+
+<!-- Brand Item 103 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Plastilite</h3>
+    </div>
+</div>
+
+<!-- Brand Item 104 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Power Bait</h3>
+    </div>
+</div>
+
+<!-- Brand Item 105 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Power Pro</h3>
+    </div>
+</div>
+
+<!-- Brand Item 106 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Pro-Line</h3>
+    </div>
+</div>
+
+<!-- Brand Item 107 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Pro-Cure</h3>
+    </div>
+</div>
+
+<!-- Brand Item 108 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Quantum</h3>
+    </div>
+</div>
+
+<!-- Brand Item 109 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Rapala VMC</h3>
+    </div>
+</div>
+
+<!-- Brand Item 110 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Reaction</h3>
+    </div>
+</div>
+
+<!-- Brand Item 111 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Rebel</h3>
+    </div>
+</div>
+
+<!-- Brand Item 112 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Reins</h3>
+    </div>
+</div>
+
+<!-- Brand Item 113 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Repel</h3>
+    </div>
+</div>
+
+<!-- Brand Item 114 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Rooster Tail</h3>
+    </div>
+</div>
+
+<!-- Brand Item 115 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Savage Gear</h3>
+    </div>
+</div>
+
+<!-- Brand Item 116 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Scientific Anglers</h3>
+    </div>
+</div>
+
+<!-- Brand Item 117 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Scotty</h3>
+    </div>
+</div>
+
+<!-- Brand Item 118 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Scum Frog</h3>
+    </div>
+</div>
+
+<!-- Brand Item 119 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Sea Striker</h3>
+    </div>
+</div>
+
+<!-- Brand Item 120 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Seguar</h3>
+    </div>
+</div>
+
+<!-- Brand Item 121 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Shakespeare</h3>
+    </div>
+</div>
+
+<!-- Brand Item 122 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Shimano</h3>
+    </div>
+</div>
+
+<!-- Brand Item 123 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Silver Thread</h3>
+    </div>
+</div>
+
+<!-- Brand Item 124 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Smelly Jelly</h3>
+    </div>
+</div>
+
+<!-- Brand Item 125 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Snag Proof</h3>
+    </div>
+</div>
+
+<!-- Brand Item 126 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>South Bend</h3>
+    </div>
+</div>
+
+<!-- Brand Item 127 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Spike It</h3>
+    </div>
+</div>
+
+<!-- Brand Item 128 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Spider Wire</h3>
+    </div>
+</div>
+
+<!-- Brand Item 129 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Spro</h3>
+    </div>
+</div>
+
+<!-- Brand Item 130 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Stanley</h3>
+    </div>
+</div>
+
+<!-- Brand Item 131 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>St. Croix Rods</h3>
+    </div>
+</div>
+
+<!-- Brand Item 132 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Stearns</h3>
+    </div>
+</div>
+
+<!-- Brand Item 133 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Storm</h3>
+    </div>
+</div>
+
+<!-- Brand Item 134 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Stren</h3>
+    </div>
+</div>
+
+<!-- Brand Item 135 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Strike King</h3>
+    </div>
+</div>
+
+<!-- Brand Item 136 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Sufix</h3>
+    </div>
+</div>
+
+<!-- Brand Item 137 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Surelife</h3>
+    </div>
+</div>
+
+<!-- Brand Item 138 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Tackle Factory</h3>
+    </div>
+</div>
+
+<!-- Brand Item 139 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Thill</h3>
+    </div>
+</div>
+
+<!-- Brand Item 140 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Tica</h3>
+    </div>
+</div>
+
+<!-- Brand Item 141 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>TNA Tackle</h3>
+    </div>
+</div>
+
+<!-- Brand Item 142 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Trout Magnet</h3>
+    </div>
+</div>
+
+<!-- Brand Item 143 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Tru-Turn</h3>
+    </div>
+</div>
+
+<!-- Brand Item 144 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Water Gremlin</h3>
+    </div>
+</div>
+
+<!-- Brand Item 145 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Wordens</h3>
+    </div>
+</div>
+
+<!-- Brand Item 146 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Wright & McGill</h3>
+    </div>
+</div>
+
+<!-- Brand Item 147 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Yakima</h3>
+    </div>
+</div>
+
+<!-- Brand Item 148 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Yamamoto</h3>
+    </div>
+</div>
+
+<!-- Brand Item 149 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Yo Zuri</h3>
+    </div>
+</div>
+
+<!-- Brand Item 150 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Yum</h3>
+    </div>
+</div>
+
+<!-- Brand Item 151 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Z Man</h3>
+    </div>
+</div>
+
+<!-- Brand Item 152 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Zebco</h3>
+    </div>
+</div>
+
+<!-- Brand Item 153 -->
+<div class="brand-card">
+    <div class="brand-logo">
+    </div>
+    <div class="brand-info">
+        <h3>Zoom</h3>
+    </div>
+</div>
+          
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="https://shop.gordonssportssupply.com/">Shop</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Hunting Rifles</a></li>
+                    <li><a href="#">Shotguns</a></li>
+                    <li><a href="#">Ammunition</a></li>
+                    <li><a href="#">Fishing Rods</a></li>
+                    <li><a href="#">Tackle & Bait</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <p>Follow us on social media for the latest products and promotions.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> &copy; 2025 Gordon's Sport Supply. All Rights Reserved.</p>
+        </div>
+        <div class="footer-left">
+
+            <p> Website Designed by Rutviij Casula</p>
+        </div>
+    </footer>
+
+    <script>
+
+        window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Responsive adjustment
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+        
+    
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.product-card, .about-content');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.product-card, .about-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
